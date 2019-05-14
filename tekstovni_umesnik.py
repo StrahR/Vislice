@@ -131,7 +131,6 @@ def zahtevaj_vnos():
 
 
 def pozeni_vmesnik():
-    igra = 1
     igra = models.nova_igra()
     while True:
         c = zahtevaj_vnos()

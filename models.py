@@ -60,4 +60,4 @@ del bazen_besed[-1]
 
 
 def nova_igra():
-    return Igra(geslo=random.choice(bazen_besed))
+    return Igra(geslo=random.choice(bazen_besed), crke=[])
