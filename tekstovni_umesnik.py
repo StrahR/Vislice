@@ -35,7 +35,7 @@ def pozeni_vmesnik():
             print(izpis_igre(igra))
 
 
-while True():
+while True:
     pozeni_vmesnik()
     if input("Igraj znova (Y/n)").startswith('n'):
         break
