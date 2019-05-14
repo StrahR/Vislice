@@ -92,7 +92,6 @@ def izris(n: int):
        |  /
       ─|──▀▀▀──
     """
-    
     else:
         return """\
        _____
@@ -120,8 +119,8 @@ def izpis_poraza(igra: models.Igra):
        |   o
        |  /|\\
       ─|─┐/ \\┌─
-      ─|──────
-    PORAZ! Geslo je bilo """ + igra.geslo
+
+    PORAZ!\nGeslo je bilo """ + igra.geslo + '.'
 
 
 def zahtevaj_vnos():
