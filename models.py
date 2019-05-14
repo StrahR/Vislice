@@ -8,7 +8,7 @@ ZMAGA, PORAZ = 'W', 'X'
 class Igra:
     def __init__(self, geslo, crke=[]):
         self.geslo = geslo
-        self.crke = crke
+        self.crke = list(crke)
 
     def napacne_crke(self):
         return list(set(self.crke) - set(self.geslo))
@@ -60,4 +60,4 @@ del bazen_besed[-1]
 
 
 def nova_igra():
-    return Igra(geslo=random.choice(bazen_besed), crke=[])
+    return Igra(geslo=random.choice(bazen_besed))
