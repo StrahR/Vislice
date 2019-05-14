@@ -9,7 +9,7 @@ ABECEDA_MALE = ABECEDA_VELIKE.lower()
 
 
 class Igra:
-    def __init__(self, geslo, crke):
+    def __init__(self, geslo, crke=[]):
         self.geslo = geslo
         self.crke = crke
 
@@ -42,7 +42,8 @@ class Igra:
     def ugibaj(self, c: str):
         if c in self.crke:
             return PONOVLJENA_CRKA
-        elif c in self.geslo:
+        self.crke.append(c)
+        if c in self.geslo:
             if self.zmaga():
                 return ZMAGA
             else:
