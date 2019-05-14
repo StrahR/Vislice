@@ -1,8 +1,111 @@
 import models
 
 
+def izris(n: int):
+    if n == 0:
+        return """\
+
+
+
+
+
+      ────▀▀▀──
+    """
+    elif n == 1:
+        return """\
+
+       |
+       |
+       |
+       |
+      ─|──▀▀▀──
+    """
+    elif n == 2:
+        return """\
+       _____
+       |
+       |
+       |
+       |
+      ─|──▀▀▀──
+    """
+    elif n == 3:
+        return """\
+       _____
+       |   |
+       |
+       |
+       |
+      ─|──▀▀▀──
+    """
+    elif n == 4:
+        return """\
+       _____
+       |   |
+       |   o
+       |
+       |
+      ─|──▀▀▀──
+    """
+    elif n == 5:
+        return """\
+       _____
+       |   |
+       |   o
+       |   |
+       |
+      ─|──▀▀▀──
+    """
+    elif n == 6:
+        return """\
+       _____
+       |   |
+       |   o
+       |  /|
+       |
+      ─|──▀▀▀──
+    """
+    elif n == 7:
+        return """\
+       _____
+       |   |
+       |   o
+       |  /|\\
+       |
+      ─|──▀▀▀──
+    """
+    elif n == 8:
+        return """\
+       _____
+       |   |
+       |   o
+       |  /|\\
+       |  /
+      ─|──▀▀▀──
+    """
+    elif n == 9:
+        return """\
+       _____
+       |   |
+       |   o
+       |  /|\\
+       |  /
+      ─|──▀▀▀──
+    """
+    
+    else:
+        return """\
+       _____
+       |   |
+       |   o
+       |  /|\\
+       |  / \\
+      ─|──▀▀▀──
+    """
+
+
 def izpis_igre(igra: models.Igra):
-    return igra.pravilni_del_gesla() + '\nNepravilne črke:' + igra.nepravilni_ugibi()
+    return izris(len(igra.napacne_crke())) + igra.pravilni_del_gesla() + '\nNepravilne črke:' + igra.nepravilni_ugibi()
 
 
 def izpis_zmage(igra: models.Igra):
@@ -10,17 +113,26 @@ def izpis_zmage(igra: models.Igra):
 
 
 def izpis_poraza(igra: models.Igra):
-    return "PORAZ! Geslo je bilo " + igra.geslo
+    return """\
+       _____
+       |   |
+       |   |
+       |   o
+       |  /|\\
+      ─|─┐/ \\┌─
+      ─|──────
+    PORAZ! Geslo je bilo """ + igra.geslo
 
 
 def zahtevaj_vnos():
     guess = input("Vnesi črko:\n> ").lower()
-    while len(guess) > 1 and not guess.isalpha():
+    while len(guess) != 1 or not guess.isalpha():
         guess = input("Vnesi črko:\n> ").lower()
     return guess
 
 
 def pozeni_vmesnik():
+    igra = 1
     igra = models.nova_igra()
     while True:
         c = zahtevaj_vnos()
